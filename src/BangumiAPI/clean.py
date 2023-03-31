@@ -6,7 +6,7 @@ def p():
     # import os
     # print(os.getcwd())
     os.chdir("dist")
-    a=os.listdir(os.getcwd())
+    a = os.listdir(os.getcwd())
     print(a)
     for i in a:
         os.remove(i)

@@ -5,10 +5,12 @@
 # -*- coding: utf-8 -*-
 import requests
 
+from src.BangumiAPI.basic.const import headers
+
 
 class EntryRelations:
     def __init__(self, subject_id: (str | int)):
-        self.__url = f'https://api.bgm.tv/v0/subjects/{subject_id}/subjects'
+        self.__url = f"https://api.bgm.tv/v0/subjects/{subject_id}/subjects"
 
     def __str__(self):
         return self.__request().__str__()
@@ -17,7 +19,7 @@ class EntryRelations:
         return self.__request().__repr__()
 
     def __request(self) -> dict:
-        r = requests.get(self.__url)
+        r = requests.get(url=self.__url, headers=headers)
         if r.status_code != 200:
             r.raise_for_status()
         return r.json()
@@ -30,5 +32,5 @@ class EntryRelations:
         return self.__url
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(EntryRelations(326868))

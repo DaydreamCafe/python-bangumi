@@ -5,10 +5,12 @@
 # -*- coding: utf-8 -*-
 import requests
 
+from src.BangumiAPI.basic.const import headers
+
 
 class Calendar:
     def __init__(self):
-        self.__url = 'https://api.bgm.tv/calendar'
+        self.__url = "https://api.bgm.tv/calendar"
 
     def __str__(self):
         return self.__request().__str__()
@@ -17,7 +19,7 @@ class Calendar:
         return self.__request().__repr__()
 
     def __request(self) -> list:
-        r = requests.get(self.__url)
+        r = requests.get(url=self.__url, headers=headers)
         return r.json()
 
     def get(self) -> list:
@@ -28,5 +30,5 @@ class Calendar:
         return self.__url
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(Calendar())

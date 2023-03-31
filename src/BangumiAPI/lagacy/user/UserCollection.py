@@ -7,9 +7,17 @@ Warning: 这是一个已经被弃用的API，尽管它目前仍然可以使用�
 # -*- coding: utf-8 -*-
 import requests
 
+from src.BangumiAPI.basic.const import headers
+
 
 class UserCollection:
-    def __init__(self, username: str, category: str = 'watching', ids: list = None, response_group: str = 'medium'):
+    def __init__(
+        self,
+        username: str,
+        category: str = "watching",
+        ids: list = None,
+        response_group: str = "medium",
+    ):
         """
         获取用户收藏信息
 
@@ -29,21 +37,21 @@ class UserCollection:
             case None:
                 self.__ids = None
                 self.__params = {
-                    'cat': self.__category,
-                    'response_group': self.__response_group
+                    "cat": self.__category,
+                    "response_group": self.__response_group,
                 }
             case _:
-                self.__ids = ''
+                self.__ids = ""
                 for i in ids:
-                    self.__ids += f'{i},'
+                    self.__ids += f"{i},"
                 self.__ids = self.__ids[:-1]
                 self.__params = {
-                    'cat': self.__category,
-                    'response_group': self.__response_group,
-                    'ids': self.__ids
+                    "cat": self.__category,
+                    "response_group": self.__response_group,
+                    "ids": self.__ids,
                 }
 
-        self.__url = f'https://api.bgm.tv/user/{username}/collection'
+        self.__url = f"https://api.bgm.tv/user/{username}/collection"
 
     def __str__(self):
         return self.__request().__str__()
@@ -52,8 +60,7 @@ class UserCollection:
         return self.__request().__repr__()
 
     def __request(self) -> dict:
-
-        r = requests.get(self.__url, params=self.__params)
+        r = requests.get(url=self.__url, params=self.__params, headers=headers)
         if r.status_code != 200:
             r.raise_for_status()
         return r.json()
@@ -82,5 +89,5 @@ class UserCollection:
         return self.__category
 
 
-if __name__ == '__main__':
-    print(UserCollection('sai'))
+if __name__ == "__main__":
+    print(UserCollection("sai"))
