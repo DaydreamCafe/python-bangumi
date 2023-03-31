@@ -19,10 +19,10 @@ class Entry:
         return self.__request().__repr__()
 
     def __request(self) -> dict:
-        r = requests.get(url=self.__url, headers=headers)
-        if r.status_code != 200:
-            r.raise_for_status()
-        return r.json()
+        result = requests.get(url=self.__url, headers=headers)
+        if result.status_code != 200:
+            result.raise_for_status()
+        return result.json()
 
     def get(self) -> dict:
         return self.__request()

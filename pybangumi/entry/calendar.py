@@ -19,8 +19,8 @@ class Calendar:
         return self.__request().__repr__()
 
     def __request(self) -> list:
-        r = requests.get(url=self.__url, headers=headers)
-        return r.json()
+        result = requests.get(url=self.__url, headers=headers)
+        return result.json()
 
     def get(self) -> list:
         return self.__request()
