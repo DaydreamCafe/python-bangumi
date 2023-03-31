@@ -1,16 +1,16 @@
 """
-每日放送
+获取用户信息
 """
 
 # -*- coding: utf-8 -*-
 import requests
 
-from src.BangumiAPI.basic.const import headers
+from pybangumi.basic.const import headers
 
 
-class Calendar:
-    def __init__(self):
-        self.__url = "https://api.bgm.tv/calendar"
+class User:
+    def __init__(self, username: str):
+        self.__url = f"https://api.bgm.tv/user/{username}"
 
     def __str__(self):
         return self.__request().__str__()
@@ -18,11 +18,13 @@ class Calendar:
     def __repr__(self):
         return self.__request().__repr__()
 
-    def __request(self) -> list:
+    def __request(self) -> dict:
         r = requests.get(url=self.__url, headers=headers)
+        if r.status_code != 200:
+            r.raise_for_status()
         return r.json()
 
-    def get(self) -> list:
+    def get(self) -> dict:
         return self.__request()
 
     @property
@@ -31,4 +33,4 @@ class Calendar:
 
 
 if __name__ == "__main__":
-    print(Calendar())
+    print(User("653154"))

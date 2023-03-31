@@ -1,16 +1,16 @@
 """
-获取条目
+获取与条目有关的条目信息
 """
 
 # -*- coding: utf-8 -*-
 import requests
 
-from src.BangumiAPI.basic.const import headers
+from pybangumi.basic.const import headers
 
 
-class Entry:
+class EntryRelations:
     def __init__(self, subject_id: (str | int)):
-        self.__url = f"https://api.bgm.tv/v0/subjects/{subject_id}"
+        self.__url = f"https://api.bgm.tv/v0/subjects/{subject_id}/subjects"
 
     def __str__(self):
         return self.__request().__str__()
@@ -33,4 +33,4 @@ class Entry:
 
 
 if __name__ == "__main__":
-    print(Entry(326868))
+    print(EntryRelations(326868))

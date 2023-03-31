@@ -1,16 +1,16 @@
 """
-获取条目人物信息
+获取条目
 """
 
 # -*- coding: utf-8 -*-
 import requests
 
-from src.BangumiAPI.basic.const import headers
+from pybangumi.basic.const import headers
 
 
-class EntryCharacters:
+class Entry:
     def __init__(self, subject_id: (str | int)):
-        self.__url = f"https://api.bgm.tv/v0/subjects/{subject_id}/characters"
+        self.__url = f"https://api.bgm.tv/v0/subjects/{subject_id}"
 
     def __str__(self):
         return self.__request().__str__()
@@ -30,7 +30,3 @@ class EntryCharacters:
     @property
     def url(self):
         return self.__url
-
-
-if __name__ == "__main__":
-    print(EntryCharacters(326868))

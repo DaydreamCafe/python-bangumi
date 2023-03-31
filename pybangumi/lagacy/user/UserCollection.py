@@ -7,7 +7,7 @@ Warning: 这是一个已经被弃用的API，尽管它目前仍然可以使用�
 # -*- coding: utf-8 -*-
 import requests
 
-from src.BangumiAPI.basic.const import headers
+from pybangumi.basic.const import headers
 
 
 class UserCollection:

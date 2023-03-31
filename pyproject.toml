@@ -11,7 +11,7 @@ classifiers = [
     'License :: OSI Approved :: MIT License',
     'Operating System :: OS Independent',
 ]
-packages = [{ include = "BangumiAPI", from = "src" }]
+packages = [{ include = "pybangumi" }]
 
 [tool.poetry.scripts]
 clean = "tool.clean:clean_dist"
