@@ -1,5 +1,4 @@
 import unittest
-
 from test.test_entry import TestEntry
 
 # from test.test_entry import TestEntry

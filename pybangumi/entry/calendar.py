@@ -1,5 +1,5 @@
 """
-获取条目人物信息
+每日放送
 """
 
 # -*- coding: utf-8 -*-
@@ -8,9 +8,9 @@ import requests
 from pybangumi.basic.const import headers
 
 
-class EntryCharacters:
-    def __init__(self, subject_id: (str | int)):
-        self.__url = f"https://api.bgm.tv/v0/subjects/{subject_id}/characters"
+class Calendar:
+    def __init__(self):
+        self.__url = "https://api.bgm.tv/calendar"
 
     def __str__(self):
         return self.__request().__str__()
@@ -18,19 +18,13 @@ class EntryCharacters:
     def __repr__(self):
         return self.__request().__repr__()
 
-    def __request(self) -> dict:
+    def __request(self) -> list:
         r = requests.get(url=self.__url, headers=headers)
-        if r.status_code != 200:
-            r.raise_for_status()
         return r.json()
 
-    def get(self) -> dict:
+    def get(self) -> list:
         return self.__request()
 
     @property
     def url(self):
         return self.__url
-
-
-if __name__ == "__main__":
-    print(EntryCharacters(326868))

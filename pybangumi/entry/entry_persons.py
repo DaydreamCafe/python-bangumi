@@ -1,16 +1,14 @@
 """
-获取与条目有关的条目信息
+获取条目Staff
 """
 
 # -*- coding: utf-8 -*-
 import requests
 
-from pybangumi.basic.const import headers
 
-
-class EntryRelations:
+class EntryPersons:
     def __init__(self, subject_id: (str | int)):
-        self.__url = f"https://api.bgm.tv/v0/subjects/{subject_id}/subjects"
+        self.__url = f"https://api.bgm.tv/v0/subjects/{subject_id}/persons"
 
     def __str__(self):
         return self.__request().__str__()
@@ -30,7 +28,3 @@ class EntryRelations:
     @property
     def url(self):
         return self.__url
-
-
-if __name__ == "__main__":
-    print(EntryRelations(326868))
