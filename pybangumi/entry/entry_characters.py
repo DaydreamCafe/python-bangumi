@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 import requests
 
-from pybangumi.basic.const import headers
+from pybangumi.consts.__init__ import headers
 
 
 class EntryCharacters:
