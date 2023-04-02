@@ -6,6 +6,7 @@ from typing import Union, TypeVar
 from dataclasses import dataclass
 from abc import ABCMeta, abstractmethod
 
+
 TypeInterfaceData = TypeVar('TypeInterfaceData', bound='InterfaceData')
 
 
