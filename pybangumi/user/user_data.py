@@ -14,6 +14,9 @@ TypeUserData = TypeVar('TypeUserData', bound='UserData')
 
 @dataclass
 class AvatarData(InterfaceData):
+    """
+    头像dataclass
+    """
     large: str = ''
     medium: str = ''
     small: str = ''
@@ -27,11 +30,14 @@ class AvatarData(InterfaceData):
 
 @dataclass
 class UserData(InterfaceData):
+    """
+    用户信息dataclass
+    """
     avatar: AvatarData = AvatarData()
     sign: str = ''
     username: str = ''
     nickname: str = ''
-    id: int = -1
+    userid: int = -1
     usergroup: int = -1
 
     def init(self, data: dict) -> TypeUserData:
@@ -39,6 +45,6 @@ class UserData(InterfaceData):
         self.sign = data['sign']
         self.username = data['username']
         self.nickname = data['nickname']
-        self.id = data['id']
+        self.userid = data['id']
         self.usergroup = data['usergroup']
         return self
