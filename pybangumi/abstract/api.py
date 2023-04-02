@@ -20,16 +20,16 @@ class AbstractAPI(metaclass=ABCMeta):
     def __init__(self):
         ...
 
-    def __str__(self) -> str:
-        return self.__request().__str__()
-
-    def __repr__(self) -> str:
-        return self.__request().__repr__()
-
     @abstractmethod
-    def __request(self) -> dict:
+    def _request(self):
         ...
 
     @abstractmethod
     def fetch(self) -> InterfaceData:
         ...
+
+    def __str__(self) -> str:
+        return self._request().__str__()
+
+    def __repr__(self) -> str:
+        return self._request().__repr__()
