@@ -5,7 +5,7 @@
 from dataclasses import dataclass
 from typing import TypeVar
 
-from pybangumi.abstract.data import InterfaceData
+from pybangumi.abstract import InterfaceData
 
 
 TypeAvatarData = TypeVar('TypeAvatarData', bound='AvatarData')
@@ -18,10 +18,10 @@ class AvatarData(InterfaceData):
     medium: str = ''
     small: str = ''
 
-    def init(self, avatar: dict) -> TypeAvatarData:
-        self.large = avatar['large']
-        self.medium = avatar['medium']
-        self.small = avatar['small']
+    def init(self, data: dict) -> TypeAvatarData:
+        self.large = data['large']
+        self.medium = data['medium']
+        self.small = data['small']
         return self
 
 
@@ -34,11 +34,11 @@ class UserData(InterfaceData):
     id: int = -1
     usergroup: int = -1
 
-    def init(self, user: dict) -> TypeUserData:
-        self.avatar = AvatarData().init(user['avatar'])
-        self.sign = user['sign']
-        self.username = user['username']
-        self.nickname = user['nickname']
-        self.id = user['id']
-        self.usergroup = user['usergroup']
+    def init(self, data: dict) -> TypeUserData:
+        self.avatar = AvatarData().init(data['avatar'])
+        self.sign = data['sign']
+        self.username = data['username']
+        self.nickname = data['nickname']
+        self.id = data['id']
+        self.usergroup = data['usergroup']
         return self
