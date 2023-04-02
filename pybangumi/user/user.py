@@ -5,7 +5,7 @@
 import requests
 
 from pybangumi.abstract import AbstractAPI
-from pybangumi.exceptions import UANotDefinedException
+from pybangumi.exceptions import UANotDefinedException, RequestFailedException
 from .user_data import UserData
 
 
@@ -31,9 +31,14 @@ class User(AbstractAPI):
             },
             timeout=self.__timeout
         )
-        if r.status_code != 200:
+        if r.status_code != 200:  # pragma: no cover
             r.raise_for_status()
-        return r.json()
+        resp_json = r.json()
+        try:
+            if resp_json['code']:
+                raise RequestFailedException(resp_json['error'])
+        except KeyError:
+            return resp_json
 
     def fetch(self) -> UserData:
         return UserData(self._request())
