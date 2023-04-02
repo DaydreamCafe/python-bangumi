@@ -30,7 +30,7 @@ jobs:
 
     - name: Generate coverage report
       run: |
-        coverage run --source pybangumi --parallel-mode -m unittest $(git ls-files 'tests\test_*.py')
+        coverage run --source pybangumi --parallel-mode -m unittest
         coverage combine
         coverage xml -i
       env:
