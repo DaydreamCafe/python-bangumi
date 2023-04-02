@@ -1,13 +1,12 @@
 import unittest
 
-from pybangumi import User
-from pybangumi.user.user_data import UserData, AvatarData
+from pybangumi.user import User, UserData
 
 
 class UserTestCase(unittest.TestCase):
     def test_user(self):
         self.assertEqual(
-            User('653154').fetch(),
+            User('653154', 'WhitePaper/BangumiAPI (https://github.com/WhitePaper233/BangumiAPI)').fetch(),
             UserData().init(
                 {
                     'id': 653154,
