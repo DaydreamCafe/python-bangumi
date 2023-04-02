@@ -6,4 +6,7 @@
 
 ```python
 import pybangumi as pybgm
+
+api = pybgm.BangumiAPI('Me/MyProject (https://github.com/Me/MyProject)')
+print(api.new_user('233').fetch())
 ```
