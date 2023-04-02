@@ -7,7 +7,7 @@ class UserTestCase(unittest.TestCase):
     def test_user(self):
         self.assertEqual(
             User('653154', 'WhitePaper/BangumiAPI (https://github.com/WhitePaper233/BangumiAPI)').fetch(),
-            UserData().init(
+            UserData(
                 {
                     'id': 653154,
                     'url': 'http://bgm.tv/user/653154',

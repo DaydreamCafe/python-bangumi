@@ -4,7 +4,7 @@
 # -*- coding: utf-8 -*-
 from typing import Union, TypeVar
 from dataclasses import dataclass
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta
 
 
 TypeInterfaceData = TypeVar('TypeInterfaceData', bound='InterfaceData')
@@ -15,7 +15,4 @@ class InterfaceData(metaclass=ABCMeta):
     """
     数据类型接口 所有api数据类型实现了该接口
     """
-
-    @abstractmethod
-    def init(self, data: Union[dict, list]) -> TypeInterfaceData:
-        ...
+    ...

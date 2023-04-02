@@ -9,7 +9,7 @@ class APITestCase(unittest.TestCase):
         api = BangumiAPI('WhitePaper/BangumiAPI (https://github.com/WhitePaper233/BangumiAPI)', 60)
         self.assertEqual(
             api.new_user('653154').fetch(),
-            UserData().init(
+            UserData(
                 {
                     'id': 653154,
                     'url': 'http://bgm.tv/user/653154',

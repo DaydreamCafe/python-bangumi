@@ -2,7 +2,7 @@
 """
 用户信息返回值dataclass
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import TypeVar
 
 from pybangumi.abstract import InterfaceData
@@ -17,15 +17,14 @@ class AvatarData(InterfaceData):
     """
     头像dataclass
     """
-    large: str = ''
-    medium: str = ''
-    small: str = ''
+    large: str
+    medium: str
+    small: str
 
-    def init(self, data: dict) -> TypeAvatarData:
+    def __init__(self, data: dict):
         self.large = data['large']
         self.medium = data['medium']
         self.small = data['small']
-        return self
 
 
 @dataclass
@@ -33,18 +32,17 @@ class UserData(InterfaceData):
     """
     用户信息dataclass
     """
-    avatar: AvatarData = AvatarData()
-    sign: str = ''
-    username: str = ''
-    nickname: str = ''
-    userid: int = -1
-    usergroup: int = -1
+    avatar: AvatarData
+    sign: str
+    username: str
+    nickname: str
+    userid: int
+    usergroup: int
 
-    def init(self, data: dict) -> TypeUserData:
-        self.avatar = AvatarData().init(data['avatar'])
+    def __init__(self, data: dict):
+        self.avatar = AvatarData(data['avatar'])
         self.sign = data['sign']
         self.username = data['username']
         self.nickname = data['nickname']
         self.userid = data['id']
         self.usergroup = data['usergroup']
-        return self

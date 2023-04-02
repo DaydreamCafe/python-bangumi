@@ -36,7 +36,7 @@ class User(AbstractAPI):
         return r.json()
 
     def fetch(self) -> UserData:
-        return UserData().init(self._request())
+        return UserData(self._request())
 
     @property
     def url(self):
