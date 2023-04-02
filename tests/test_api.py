@@ -1,6 +1,6 @@
 import unittest
 
-from pybangumi import BangumiAPI
+from pybangumi import BangumiAPI, UANotDefinedException
 from pybangumi.user import UserData
 
 
@@ -25,6 +25,9 @@ class APITestCase(unittest.TestCase):
                 }
             )
         )
+
+        api = BangumiAPI('')
+        self.assertRaises(UANotDefinedException, api.new_user, '653154')
 
 
 if __name__ == '__main__':

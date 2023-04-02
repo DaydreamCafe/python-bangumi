@@ -11,7 +11,7 @@ TypeInterfaceData = TypeVar('TypeInterfaceData', bound='InterfaceData')
 
 
 @dataclass
-class InterfaceData(metaclass=ABCMeta):
+class InterfaceData(metaclass=ABCMeta):  # pragma: no cover
     """
     数据类型接口 所有api数据类型实现了该接口
     """

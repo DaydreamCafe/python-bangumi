@@ -1,5 +1,6 @@
 import unittest
 
+from pybangumi import RequestFailedException
 from pybangumi.user import User, UserData
 
 
@@ -23,6 +24,9 @@ class UserTestCase(unittest.TestCase):
                 }
             )
         )
+
+        user = User('1145141919810', 'WhitePaper/BangumiAPI (https://github.com/WhitePaper233/BangumiAPI)')
+        self.assertRaises(RequestFailedException, user.fetch)
 
 
 if __name__ == '__main__':

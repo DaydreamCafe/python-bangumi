@@ -7,7 +7,7 @@ from abc import ABCMeta, abstractmethod
 from pybangumi.abstract.data import InterfaceData
 
 
-class AbstractAPI(metaclass=ABCMeta):
+class AbstractAPI(metaclass=ABCMeta):  # pragma: no cover
     """
     API抽象类
     """
