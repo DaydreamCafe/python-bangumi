@@ -1,8 +1,8 @@
+# -*- coding: utf-8 -*-
 """
 用于获取构造后的API URL的函数
 """
-# -*- coding: utf-8 -*-
-from pybangumi.abstract.api import AbstractAPI
+from pybangumi.abstract import AbstractAPI
 
 
 def get_url(api_instance: AbstractAPI) -> str:
