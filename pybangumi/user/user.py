@@ -15,6 +15,7 @@ class User(AbstractAPI):
     \n
     Doc: https://bangumi.github.io/api/#/%E7%94%A8%E6%88%B7/getUserByName
     """
+
     def __init__(self, username: str, ua: str, timeout: int = 3600):
         self.__url = f"https://api.bgm.tv/user/{username}"
         self.__timeout = timeout
