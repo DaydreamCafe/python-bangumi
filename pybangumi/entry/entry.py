@@ -24,7 +24,7 @@ class Entry:
             result.raise_for_status()
         return result.json()
 
-    def get(self) -> dict:
+    def fetch(self) -> dict:
         return self.__request()
 
     @property

@@ -2,6 +2,7 @@
 """
 api模块
 """
+from pybangumi.entry import Entry
 from pybangumi.user import User
 
 
@@ -16,3 +17,6 @@ class BangumiAPI:
 
     def new_user(self, username: str):
         return User(username, self.ua, self.timeout)
+
+    def new_entry(self, subject_id: (str | int)):
+        return Entry(subject_id)
