@@ -5,7 +5,8 @@
 import requests
 
 from pybangumi.abstract import AbstractAPI
-from pybangumi.exceptions import UANotDefinedException, RequestFailedException
+from pybangumi.exceptions import RequestFailedException, UANotDefinedException
+
 from .user_data import UserData
 
 
@@ -27,17 +28,15 @@ class User(AbstractAPI):
     def _request(self) -> dict:
         r = requests.get(
             url=self.__url,
-            headers={
-                'User-Agent': self.__ua
-            },
-            timeout=self.__timeout
+            headers={"User-Agent": self.__ua},
+            timeout=self.__timeout,
         )
         if r.status_code != 200:  # pragma: no cover
             r.raise_for_status()
         resp_json = r.json()
         try:
-            if resp_json['code']:
-                raise RequestFailedException(resp_json['error'])
+            if resp_json["code"]:
+                raise RequestFailedException(resp_json["error"])
         except KeyError:
             return resp_json
 

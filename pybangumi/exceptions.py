@@ -8,13 +8,15 @@ class UANotDefinedException(Exception):
     """
     UA未定义错误
     """
+
     def __init__(self):
-        super().__init__('UA not defined')
+        super().__init__("UA not defined")
 
 
 class RequestFailedException(Exception):
     """
     请求失败错误
     """
+
     def __init__(self, message: str):
         super().__init__(message)

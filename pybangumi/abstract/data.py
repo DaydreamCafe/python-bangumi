@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from json import dumps
 from typing import TypeVar, Union
 
-TypeInterfaceData = TypeVar('TypeInterfaceData', bound='InterfaceData')
+TypeInterfaceData = TypeVar("TypeInterfaceData", bound="InterfaceData")
 
 
 @dataclass
@@ -15,6 +15,7 @@ class AbstractData(metaclass=ABCMeta):  # pragma: no cover
     """
     数据类型接口 所有api数据类型实现了该接口
     """
+
     _data: Union[dict, list]
 
     @abstractmethod
@@ -29,4 +30,11 @@ class AbstractData(metaclass=ABCMeta):  # pragma: no cover
         return self._data.__str__()
 
     def format_print(self, print_indent: int = 2):
-        print(dumps(self._data, sort_keys=True, indent=print_indent, separators=(',', ':')))
+        print(
+            dumps(
+                self._data,
+                sort_keys=True,
+                indent=print_indent,
+                separators=(",", ":"),
+            )
+        )

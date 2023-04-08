@@ -3,6 +3,6 @@
 将内部其他模块进行导出
 """
 from .api import BangumiAPI
+from .exceptions import RequestFailedException, UANotDefinedException
 from .user import User
-from .utils import get_url, format_print
-from .exceptions import UANotDefinedException, RequestFailedException
+from .utils import format_print, get_url

@@ -9,6 +9,7 @@ class BangumiAPI:
     """
     API类
     """
+
     def __init__(self, ua: str, timeout: int = 3600):
         self.ua = ua
         self.timeout = timeout

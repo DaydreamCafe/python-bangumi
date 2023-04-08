@@ -14,7 +14,7 @@ class AbstractAPI(metaclass=ABCMeta):  # pragma: no cover
 
     @property
     def url(self) -> str:
-        return ''
+        return ""
 
     @abstractmethod
     def __init__(self):
