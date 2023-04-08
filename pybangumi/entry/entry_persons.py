@@ -5,6 +5,8 @@
 # -*- coding: utf-8 -*-
 import requests
 
+from pybangumi.consts import HEADERS
+
 
 class EntryPersons:
     def __init__(self, subject_id: (str | int)):
@@ -17,7 +19,10 @@ class EntryPersons:
         return self.__request().__repr__()
 
     def __request(self) -> dict:
-        result = requests.get(url=self.__url, headers=headers)
+        result = requests.get(
+            url=self.__url,
+            headers=HEADERS,
+        )
         if result.status_code != 200:
             result.raise_for_status()
         return result.json()

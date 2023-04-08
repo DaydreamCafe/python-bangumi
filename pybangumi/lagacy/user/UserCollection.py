@@ -7,7 +7,7 @@ Warning: 这是一个已经被弃用的API，尽管它目前仍然可以使用�
 # -*- coding: utf-8 -*-
 import requests
 
-from pybangumi.consts.__init__ import headers
+from pybangumi.consts.__init__ import HEADERS
 
 
 class UserCollection:
@@ -60,7 +60,11 @@ class UserCollection:
         return self.__request().__repr__()
 
     def __request(self) -> dict:
-        r = requests.get(url=self.__url, params=self.__params, headers=headers)
+        r = requests.get(
+            url=self.__url,
+            params=self.__params,
+            headers=HEADERS,
+        )
         if r.status_code != 200:
             r.raise_for_status()
         return r.json()

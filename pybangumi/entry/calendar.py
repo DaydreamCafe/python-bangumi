@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 import requests
 
-from pybangumi.consts.__init__ import headers
+from pybangumi.consts import HEADERS
 
 
 class Calendar:
@@ -19,7 +19,10 @@ class Calendar:
         return self.__request().__repr__()
 
     def __request(self) -> list:
-        result = requests.get(url=self.__url, headers=headers)
+        result = requests.get(
+            url=self.__url,
+            headers=HEADERS,
+        )
         return result.json()
 
     def get(self) -> list:

@@ -2,7 +2,7 @@
 """
 api模块
 """
-from pybangumi.consts import USER_AGENT, TIMEOUT
+from pybangumi.consts import TIMEOUT, USER_AGENT
 from pybangumi.entry import Entry
 from pybangumi.user import User
 
