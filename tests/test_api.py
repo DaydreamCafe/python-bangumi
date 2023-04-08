@@ -6,10 +6,7 @@ from pybangumi.user import UserData
 
 class APITestCase(unittest.TestCase):
     def test_user(self):
-        api = BangumiAPI(
-            "WhitePaper/BangumiAPI (https://github.com/WhitePaper233/BangumiAPI)",
-            60,
-        )
+        api = BangumiAPI()
         self.assertEqual(
             api.new_user("653154").fetch(),
             UserData(

@@ -9,7 +9,6 @@ class UserTestCase(unittest.TestCase):
         self.assertEqual(
             User(
                 "653154",
-                "WhitePaper/BangumiAPI (https://github.com/WhitePaper233/BangumiAPI)",
             ).fetch(),
             UserData(
                 {
@@ -30,7 +29,6 @@ class UserTestCase(unittest.TestCase):
 
         user = User(
             "1145141919810",
-            "WhitePaper/BangumiAPI (https://github.com/WhitePaper233/BangumiAPI)",
         )
         self.assertRaises(RequestFailedException, user.fetch)
 
