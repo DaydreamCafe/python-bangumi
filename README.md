@@ -11,6 +11,6 @@
 import pybangumi as pybgm
 
 
-api = pybgm.BangumiAPI('Me/MyProject (https://github.com/Me/MyProject)')
+api = pybgm.BangumiAPI()
 print(api.new_user('233').fetch())
 ```

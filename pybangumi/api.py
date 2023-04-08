@@ -2,6 +2,7 @@
 """
 api模块
 """
+from pybangumi.consts import USER_AGENT, TIMEOUT
 from pybangumi.entry import Entry
 from pybangumi.user import User
 
@@ -11,7 +12,7 @@ class BangumiAPI:
     API类
     """
 
-    def __init__(self, ua: str, timeout: int = 3600):
+    def __init__(self, ua: str = USER_AGENT, timeout: int = TIMEOUT):
         self.ua = ua
         self.timeout = timeout
 

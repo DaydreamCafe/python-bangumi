@@ -8,6 +8,7 @@ from pybangumi.abstract import AbstractAPI
 from pybangumi.exceptions import RequestFailedException, UANotDefinedException
 
 from .user_data import UserData
+from ..consts import USER_AGENT, TIMEOUT
 
 
 class User(AbstractAPI):
@@ -17,7 +18,7 @@ class User(AbstractAPI):
     Doc: https://bangumi.github.io/api/#/%E7%94%A8%E6%88%B7/getUserByName
     """
 
-    def __init__(self, username: str, ua: str, timeout: int = 3600):
+    def __init__(self, username: str, ua: str = USER_AGENT, timeout: int = TIMEOUT):
         self.__url = f"https://api.bgm.tv/user/{username}"
         self.__timeout = timeout
         if ua:
